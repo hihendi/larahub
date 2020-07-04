@@ -20,7 +20,7 @@ Route::get('/data-tables', function () {
 });
 
 Route::resource('answer', 'AnswerController')->except(['index','create']);
-Route::resource('question', 'QuestionController')->except(['create']);
+Route::resource('question', 'QuestionController')->except(['create','edit']);
 
 
 Auth::routes();

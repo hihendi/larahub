@@ -52,9 +52,9 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        // $question = Question::findOrFail($id);
+        $question = Question::findOrFail($id);
 
-        // return view('questions.show', compact('question'));
+        return view('questions.show', compact('question'));
     }
 
     /**
@@ -77,7 +77,13 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $question = Question::findOrFail($id);
+
+        $question->update($data);
+
+        return redirect()->route('question.show');
     }
 
     /**
@@ -88,6 +94,10 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $questions = Question::findOrFail($id);
+
+        $questions->delete();
+
+        return redirect()->route('question.index');
     }
 }

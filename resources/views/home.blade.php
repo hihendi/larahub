@@ -40,9 +40,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         @forelse ($questions as $question)
-                        <div class="card shadow text-center">
+                        <div class="card shadow">
                             <div class="card-header">
-                                <h4 class="card-text"> {{$question->title}} </h4>
+                                <h4 class="card-text text-center"> {{$question->title}} </h4>
                                 <p class="card-text">{{$question->content}}</p>
                             </div>
                             @forelse ($answers as $answer)
@@ -53,7 +53,7 @@
                             </div>
                             <hr>
                             @empty
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <p class="card-text">
                                     Not user answer question
                                 </p>
