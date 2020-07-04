@@ -13,13 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('tables');
-});
+Route::get('/', 'AnswerController@index')->name('answer.index');
 
 Route::get('/data-tables', function () {
     return view('datatables');
 });
+
+Route::resource('answer', 'AnswerController')->except(['index','create']);
+Route::resource('question', 'QuestionController')->except(['create']);
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
